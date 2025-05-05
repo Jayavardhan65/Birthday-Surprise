@@ -1,96 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kn">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Doctor!</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
       background: linear-gradient(135deg, #fffbe6, #ffe3f0);
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      overflow: hidden;
       text-align: center;
     }
 
     .card {
-      margin: 8% auto;
-      padding: 30px 25px;
+      margin: 12vh auto;
+      padding: 5vw;
       background: #ffffffdd;
       border: 4px dashed #ff4081;
-      border-radius: 25px;
-      width: 340px;
-      box-shadow: 0 0 30px rgba(255, 105, 180, 0.4);
-      position: relative;
-      z-index: 10;
-      animation: pop 1.5s ease;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(255, 64, 129, 0.4);
+      animation: pop 1.2s ease;
     }
 
     @keyframes pop {
-      0% {
+      from {
         transform: scale(0.8);
         opacity: 0;
       }
-      100% {
+      to {
         transform: scale(1);
         opacity: 1;
       }
     }
 
     .card h1 {
-      font-size: 26px;
+      font-size: 6vw;
       color: #ff4081;
-      margin-bottom: 15px;
+      margin-bottom: 4vw;
       text-shadow: 1px 1px #ffd1dc;
     }
 
     .card p {
-      font-size: 16px;
-      color: #555;
+      font-size: 4.5vw;
+      color: #444;
       display: none;
-      margin-top: 10px;
+      margin: 4vw 0;
     }
 
     .card button {
-      background-color: #ff4081;
+      background: #ff4081;
       border: none;
       color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-top: 25px;
+      padding: 3vw 6vw;
+      font-size: 4.5vw;
+      border-radius: 8px;
+      margin-top: 3vh;
       box-shadow: 0 4px 8px rgba(255, 64, 129, 0.4);
-      transition: transform 0.2s;
+      cursor: pointer;
     }
 
     .card button:hover {
-      transform: scale(1.05);
+      background-color: #e03570;
     }
 
     .doctor-items {
-      margin-top: 20px;
-      font-size: 28px;
+      font-size: 6vw;
+      margin-top: 3vw;
       display: none;
-    }
-
-    .doctor-items span {
-      margin: 6px;
     }
 
     .confetti {
       position: absolute;
       width: 10px;
       height: 10px;
-      background-color: red;
       animation: fall linear infinite;
       z-index: 1;
     }
 
     @keyframes fall {
       0% {
-        transform: translateY(-600px) rotate(0deg);
+        transform: translateY(-1000px) rotate(0deg);
         opacity: 1;
       }
       100% {
@@ -99,7 +95,6 @@
       }
     }
 
-    /* Balloons */
     .balloon {
       position: absolute;
       bottom: -100px;
@@ -121,30 +116,24 @@
     }
 
     @keyframes floatUp {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-120vh) rotate(360deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
+
 <div class="card">
   <h1>🎉 Happy Birthday, Dr.Vardhini Patil! 🩺</h1>
   <p id="message">
     Wishing you good health, happiness, and all the success in your noble journey! ❤️👨‍⚕️
   </p>
   <div class="doctor-items" id="doctorIcons">
-    <span>🩺</span><span>💊</span><span>🩹</span><span>❤️</span><span>💉</span><span>🧑‍⚕️</span>
+    <span>🩺</span><span>💊</span><span>💉</span><span>❤️</span><span>🧑‍⚕️</span>
   </div>
   <button onclick="showMessage()">Open Card</button>
 </div>
 
-<!-- Looping Traditional Happy Birthday Song -->
 <audio id="birthdaySong" src="Nagutha-Nagutha.mp3" loop></audio>
 
 <script>
@@ -152,8 +141,8 @@
     document.getElementById('message').style.display = 'block';
     document.getElementById('doctorIcons').style.display = 'block';
     document.getElementById('birthdaySong').play();
-    createConfetti(800);
-    createBalloons(100);
+    createConfetti(300);
+    createBalloons(120);
   }
 
   function createConfetti(count) {
@@ -180,7 +169,7 @@
   }
 
   function getRandomColor() {
-    const colors = ['#ff4081', '#ffeb3b', '#4caf50', '#2196f3', '#ff5722', '#9c27b0'];
+    const colors = ['#ff4081', '#ffeb3b', '#4caf50', '#2196f3', '#ff5722'];
     return colors[Math.floor(Math.random() * colors.length)];
   }
 </script>
